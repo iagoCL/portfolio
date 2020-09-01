@@ -2089,8 +2089,6 @@ input, select, textarea {
 			color: #76ddff;
 		}
 
-/* Image */
-
 	.image {
 		border-radius: 3px;
 		border: 0;
@@ -2980,7 +2978,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style3 {
-			background-color: #505393;
+			background-color: #353768;
 			color: #d3d4e4;
 		}
 
