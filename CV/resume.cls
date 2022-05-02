@@ -94,86 +94,58 @@
 
 % Defines the mainSection environment for the large sections within the CV
 \newenvironment{mainSection}[1]{ % 1 input argument - section name
-  \sectionskip
+%\vspace{0.17em}
+\addvspace{0.07em}  
   \MakeUppercase{\bf #1} % Section title
-  \sectionlineskip
   \hrule % Horizontal line
+  \addvspace{0.03em}
   \begin{list}{}{ % List for each individual item in the section
-    \setlength{\leftmargin}{1.5em} % Margin within the section
+    \setlength{\leftmargin}{0.7em} % Margin within the section
   }
-  \item[]
-}{
-  \end{list}
+\item[]}{
+\end{list}
 }
 
 %----------------------------------------------------------------------------------------
 %	WORK EXPERIENCE FORMATTING
 %----------------------------------------------------------------------------------------
 
-\newenvironment{workExperience}[4]{ % 4 input arguments - job title, date, company name, company location
-  \textbf{#3} (\textit{#4}) - \textbf{#1}.  \hfill  {\textit{#2}} % Bold company name and date on the right
-  \vspace{0.2em} % Some space after the list of bullet points
-  \setlength{\parskip}{0em}
-  \setlength{\parindent}{0.35cm}
-    }{
-  \vspace{0.2em} % Some space after the list of bullet points
-}
+\newenvironment{multiWorkExperience}[4]{ % 4 input arguments - job title, date, company name, company location
 
-\newenvironment{multiWorkExperience}[2]{ % 4 input arguments - job title, date, company name, company location
-  \textbf{#1}, \textit{#2} % Bold company name and date on the right
-    \setlength{\parindent}{0.35cm}
-    \setlength{\parskip}{0em}
-}{
-  \vspace{0.1em} % Some space after the list of bullet points
-}
-\newenvironment{multiWorkJob}[2]{ % 4 input arguments - job title, date, company name, company location
-  \setlength{\parindent}{0.35cm}
-  \textbf{#1}.  \hfill  {\textit{#2}} % Bold company name and date on the right
-  \vspace{0.1em} % Some space after the list of bullet points
-  \setlength{\parskip}{0em}
-  \setlength{\parindent}{0.55cm}
-    }{
-}
-
-\newenvironment{singleWorkExperience}[4]{ % 4 input arguments - job title, date, company name, company location
-  \begin{multiWorkExperience}{#3}{#4}
-  
-  \begin{multiWorkJob}{#1}{#2}
-    }{
-    \end{multiWorkJob}
-  \end{multiWorkExperience}
-  
-}
+\underline{\textbf{#1}} - \textbf{#2}, \textit{#3} \hfill  {\textit{#4}} % Bold company name and date on the right
+\setlength{\parindent}{0.3cm}
+\setlength{\parskip}{0.0em}
+}{}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION FORMATTING
 %----------------------------------------------------------------------------------------
 
 \newenvironment{educationItem}[5]{ % 4 input arguments - title, start year, end year, university, university location
- \textbf{#1} \hfill {\textit{#2} - \textit{#3}} % Bold company name and date on the right
- \\
-  \textit{#4}, #5.
-  \vspace{0.2em} % Some space after the list of bullet points
-  \setlength{\parskip}{0em}
-  \setlength{\parindent}{0.35cm}
-    }{
-  \vspace{0.2em} % Some space after the list of bullet points
-}
+
+\underline{\textbf{#1}}  \hfill {\textit{#2} - \textit{#3}}% Bold company name and date on the right
+\\
+\setlength{\parindent}{0em}
+\textit{#4}, #5.
+\setlength{\parindent}{0.3cm}
+\setlength{\parskip}{0em}
+}{}
 
 %----------------------------------------------------------------------------------------
 %	LANGUAGE FORMATTING
 %----------------------------------------------------------------------------------------
 
 \newenvironment{languageItem}[2]{ % 2 Language level
- \MakeUppercase{\textbf{#1:}}
+
+\addvspace{0.7em}
   \setlength{\parskip}{0em}
-  \setlength{\parindent}{0.35cm} #2
- }{
-}
+  \MakeUppercase{\textbf{#1:}} \hspace{0.5em} #2
+  \setlength{\parindent}{0.35cm}
+ }{}
 
 % The below commands define the whitespace after certain things in the document - they can be \smallskip, \medskip or \bigskip
 \def\namesize{\huge} % Size of the name at the top of the document
 \def\addressskip{\smallskip} % The space between the two address (or phone/email) lines
-\def\sectionlineskip{\medskip} % The space above the horizontal line for each section 
+\def\sectionlineskip{\smallskip} % The space above the horizontal line for each section 
 \def\nameskip{\medskip} % The space after your name at the top
-\def\sectionskip{\medskip} % The space after the heading section
+\def\sectionskip{\smallskip} % The space after the heading section
