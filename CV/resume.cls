@@ -44,13 +44,13 @@
 
 % \address command can be used to set the first, second, and third address (last 2 optional)
 \def \address #1{
+  \@ifundefined{@addressone}{
+    \def \@addressone {#1}
+  }{
   \@ifundefined{@addresstwo}{
-    \def \@addresstwo {#1}
+  \def \@addresstwo {#1}
   }{
-  \@ifundefined{@addressthree}{
-  \def \@addressthree {#1}
-  }{
-     \def \@addressone {#1}
+     \def \@addressthree {#1}
   }}
 }
 
@@ -106,16 +106,21 @@
 \end{list}
 }
 
+\newenvironment{customItemList}{
+\begin{list}{$\bullet$}{\leftmargin=1.15em \labelsep=0.2em \itemindent=0em \itemsep=0mm \parsep=0pt \topsep=0pt \partopsep=0pt \parindent=0.3cm \parskip=0.0em}}{
+\end{list}
+}
 %----------------------------------------------------------------------------------------
 %	WORK EXPERIENCE FORMATTING
 %----------------------------------------------------------------------------------------
 
-\newenvironment{multiWorkExperience}[4]{ % 4 input arguments - job title, date, company name, company location
+\newenvironment{multiWorkExperience}[5]{ % 4 input arguments - job title, date, company name, company location
 
-\underline{\textbf{#1}} - \textbf{#2}, \textit{#3} \hfill  {\textit{#4}} % Bold company name and date on the right
-\setlength{\parindent}{0.3cm}
-\setlength{\parskip}{0.0em}
-}{}
+\underline{\textbf{#1}} - \textbf{#2}, \textit{#3} \hfill  {\textit{#4}-\textit{#5}}% Bold company name and date on the right
+\begin{customItemList}
+}{
+\end{customItemList}
+}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION FORMATTING
@@ -123,13 +128,14 @@
 
 \newenvironment{educationItem}[5]{ % 4 input arguments - title, start year, end year, university, university location
 
-\underline{\textbf{#1}}  \hfill {\textit{#2} - \textit{#3}}% Bold company name and date on the right
+\underline{\textbf{#1}}  \hfill {\textit{#2}-\textit{#3}}% Bold company name and date on the right
 \\
 \setlength{\parindent}{0em}
 \textit{#4}, #5.
-\setlength{\parindent}{0.3cm}
-\setlength{\parskip}{0em}
-}{}
+%\setlength{\parindent}{0.3cm}
+%\setlength{\parskip}{0em}
+\begin{customItemList}
+}{\end{customItemList}}
 
 %----------------------------------------------------------------------------------------
 %	LANGUAGE FORMATTING
