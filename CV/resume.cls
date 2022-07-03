@@ -142,12 +142,13 @@
 %----------------------------------------------------------------------------------------
 
 \newenvironment{languageItem}[2]{ % 2 Language level
-
-\addvspace{0.7em}
   \setlength{\parskip}{0em}
   \MakeUppercase{\textbf{#1:}} \hspace{0.5em} #2
   \setlength{\parindent}{0.35cm}
  }{}
+
+ \newcommand{\subLanguageItem}[3]{
+\textbf{#1} (#2) - #3}
 
 % The below commands define the whitespace after certain things in the document - they can be \smallskip, \medskip or \bigskip
 \def\namesize{\huge} % Size of the name at the top of the document
